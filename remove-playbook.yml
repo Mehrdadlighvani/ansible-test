@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+    - name: Update repositories cache and install "foo" package
+      apt:
+       update_cache: yes
+    - name: stop service nginx
+      service:
+        name: nginx
+        state: stopped
+    - name: remove nginx
+      apt: name=nginx state=absent
+
